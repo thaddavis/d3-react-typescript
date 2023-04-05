@@ -67,6 +67,16 @@ export const Home = () => {
         >
           Example 6
         </li>
+        <li
+          style={{
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            navigate("/_7");
+          }}
+        >
+          Example 7
+        </li>
       </ul>
     </div>
   );
