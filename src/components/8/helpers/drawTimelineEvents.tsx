@@ -14,13 +14,8 @@ export const drawTimelineEvents = (
 ) => {
   const { width, height } = windowSize!;
 
-  console.log("width", width, "height", height);
-
-  //   console.log("SELECTION", select(rootElement), rootElement);
-
   const PADDING = width / 10;
   const scale = scaleLog()
-    // .exponent(0.0001)
     .domain([
       timelineEvents[0].ts,
       timelineEvents[timelineEvents.length - 1].ts,
@@ -69,9 +64,9 @@ export const drawTimelineEvents = (
         })
         .style("fill", "#004669")
         .style("font-weight", "bold")
-        .text(i.title);
+        .text(`${i.title} ${new Date(i.ts).toLocaleString()}`);
     })
     .on("mouseout", function (d, i) {
-      //   select(rootElement).selectAll("text.timeline-event-text").remove();
+      select(rootElement).selectAll("text.timeline-event-text").remove();
     });
 };
