@@ -15,7 +15,7 @@ export const drawTimelineEvents = (
   const { width, height } = windowSize!;
 
   const PADDING = width / 10;
-  const scale = scaleLog()
+  const scale = scaleLinear()
     .domain([
       timelineEvents[0].ts,
       timelineEvents[timelineEvents.length - 1].ts,
@@ -41,9 +41,8 @@ export const drawTimelineEvents = (
     .attr("fill", function (d) {
       return d.color;
     })
+    .attr("stroke", "rgba(0,0,0,1)")
     .on("mouseover", function (d, i) {
-      console.log("d", d, "i", i);
-
       select(rootElement)
         .select("svg")
         .append("text")
@@ -52,7 +51,6 @@ export const drawTimelineEvents = (
         .attr("font-size", "16px")
         .attr("y", height / 2 - 16 - 10)
         .attr("x", d.x)
-        .attr("dy", ".47em")
         .attr("text-anchor", function (innerD: any) {
           if (d.x > width * (3 / 4)) {
             return "end";

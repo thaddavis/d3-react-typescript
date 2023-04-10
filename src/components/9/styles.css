@@ -1,0 +1,23 @@
+#d3-timeline-widget {
+  height: max(33.33vh, 320px);
+  width: calc(100%);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+#d3-timeline-widget svg {
+  border: 1px solid rgb(234, 237, 242);
+  border-radius: 0.4375rem;
+}
+
+/* #d3-timeline-widget svg .tick {
+  display: none;
+}
+
+#d3-timeline-widget svg .tick:first-of-type {
+  display: block;
+}
+#d3-timeline-widget svg .tick:last-of-type {
+  display: block;
+} */

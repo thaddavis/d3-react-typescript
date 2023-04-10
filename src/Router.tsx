@@ -10,6 +10,7 @@ import { _5 } from "./components/5";
 import { _6 } from "./components/6";
 import { _7 } from "./components/7";
 import { _8 } from "./components/8/8";
+import { _9 } from "./components/9/9";
 
 export const Router = () => {
   return (
@@ -24,6 +25,7 @@ export const Router = () => {
         <Route path="_6" element={<_6 />} />
         <Route path="_7" element={<_7 />} />
         <Route path="_8" element={<_8 />} />
+        <Route path="_9" element={<_9 />} />
       </Route>
       <Route path={"*"} element={<>Not Found</>}></Route>
     </Routes>
