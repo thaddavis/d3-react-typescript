@@ -2,6 +2,7 @@ import { select } from "d3-selection";
 import { axisLeft, axisBottom } from "d3-axis";
 import { scaleLinear, scaleBand, scalePow, scaleLog } from "d3-scale";
 import { format } from "d3-format";
+import * as d3 from "d3";
 
 export const drawTimelineEvents = (
   rootElement: HTMLDivElement,
@@ -59,7 +60,7 @@ export const drawTimelineEvents = (
     .attr("r", 10)
     .attr("class", "timeline-event")
     .attr("cy", function (d, i) {
-      console.log("i", i);
+      // console.log("i", i);
       if (i % 2) {
         return 160;
       } else {
@@ -98,7 +99,7 @@ export const drawTimelineEvents = (
     .style("font-size", 20)
     .style("font-weight", "bold")
     .attr("text-anchor", function (d: any) {
-      console.log("text-anchor d", d);
+      // console.log("text-anchor d", d);
 
       const xPos = scale(d.ts);
 
@@ -111,7 +112,7 @@ export const drawTimelineEvents = (
       }
     })
     .text(function (d: any) {
-      console.log("d text", d);
+      // console.log("d text", d);
       return d.humanTS;
     });
 
@@ -137,7 +138,7 @@ export const drawTimelineEvents = (
     .attr("font-family", "Arial")
     .style("font-size", 20)
     .attr("text-anchor", function (d: any) {
-      console.log("text-anchor d", d);
+      // console.log("text-anchor d", d);
 
       const xPos = scale(d.ts);
 
@@ -150,9 +151,9 @@ export const drawTimelineEvents = (
       }
     })
     .text(function (d: any) {
-      console.log("d text", d);
-
+      // console.log("d text", d);
       // return d.notes;
+
       return d.title[0];
     });
 
@@ -178,7 +179,7 @@ export const drawTimelineEvents = (
     .attr("font-family", "Arial")
     .style("font-size", 20)
     .attr("text-anchor", function (d: any) {
-      console.log("text-anchor d", d);
+      // console.log("text-anchor d", d);
 
       const xPos = scale(d.ts);
 
@@ -191,7 +192,52 @@ export const drawTimelineEvents = (
       }
     })
     .text(function (d: any) {
-      console.log("d text", d);
+      // console.log("d text", d);
       return d.title[1];
     });
+
+  select(rootElement)
+    .select("svg")
+    .append("g")
+    .append("image")
+    .attr(
+      "href",
+      "http://upload.wikimedia.org/wikipedia/commons/a/a0/Circle_-_black_simple.svg"
+    );
+
+  // debugger;
+  // d3.text(
+  //   "http://upload.wikimedia.org/wikipedia/commons/a/a0/Circle_-_black_simple.svg",
+  //   // @ts-ignore
+  //   (error: any, externalSVGText: any): any => {
+  //     if (error) {
+  //       debugger;
+  //       console.log(error);
+  //       return;
+  //     }
+
+  //     debugger;
+
+  //     select(rootElement).select("svg").append("g").append(externalSVGText);
+
+  //     debugger;
+
+  //     // main_chart_svg.html(externalSVGText);
+  //     // main_chart_svg.append("rect").attr({
+  //     //   class: "this is just a test rect",
+  //     //   width: 200,
+  //     //   height: 100,
+  //     //   fill: "none",
+  //     //   stroke: "black",
+  //     //   "stroke-width": 5,
+  //     // });
+  //     // var innerSVG = main_chart_svg.select("svg");
+  //     // innerSVG
+  //     //   .transition()
+  //     //   .duration(1000)
+  //     //   .delay(1000)
+  //     //   .select("circle")
+  //     //   .attr("r", 100);
+  //   }
+  // );
 };

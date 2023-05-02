@@ -33,10 +33,10 @@ export const drawTimeline = (
   // .nice();
 
   const axis = (axisBottom(scale) as any).ticks(3).tickFormat((d: any) => {
-    // console.log("d", d);
-    const date = new Date(d);
-    return `${getMonthName(date.getMonth())} ${date.getFullYear()}`;
-    // return "";
+    // console.log("d --->>>", d);
+    // const date = new Date(d);
+    // return `${getMonthName(date.getMonth())} ${date.getFullYear()}`;
+    return "";
   });
 
   select(rootElement)
